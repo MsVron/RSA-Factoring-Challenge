@@ -1,40 +1,69 @@
-#!/usr/bin/env python3
+#!/usr/bin/python3
+
 import sys
+from random import randint
 
-def factorize(n):
-    # Start by checking if the number is even
+def gcd(a, b):
+    """
+    Compute the greatest common divisor of a and b.
+
+    Parameters:
+    a, b (int): Two integers for which the GCD needs to be computed.
+
+    Returns:
+    int: The greatest common divisor of a and b.
+    """
+    while b != 0:
+        a, b = b, a % b
+    return a
+
+def pollards_rho(n):
+    """
+    Implement the Pollard's Rho algorithm for factorization of numbers. This algorithm is 
+    an efficient semi-probabilistic factorization algorithm which returns one factor of the 
+    number. This factor can be a prime number or a composite number. The algorithm works 
+    by defining a pseudo-random sequence and then using Floyd's cycle detection algorithm 
+    to find a non-trivial divisor.
+
+    Parameter:
+    n (int): The integer to be factorized.
+
+    Returns:
+    int: A factor of the integer n.
+    """
     if n % 2 == 0:
-        return 2, n // 2
-
-    # If not, check odd numbers up to the square root of n
-    i = 3
-    while i * i <= n:
-        if n % i:
-            i += 2
-        else:
-            return i, n // i
-
-    # If no factor found, the number is prime
-    return n, 1
+        return 2
+    x = randint(1, n-1)
+    y = x
+    c = randint(1, n-1)
+    g = 1
+    while g==1:             
+        x = ((x * x) % n + c) % n
+        y = ((y * y) % n + c) % n
+        y = ((y * y) % n + c) % n
+        g = gcd(abs(x-y), n)
+    return g
 
 def main():
-    # Check that a file name was provided as command line argument
+    """
+    Main function to handle the input/output and call the factorization function.
+    It reads numbers from a file given as command line argument, and prints their factorization.
+    The factorization is done using the Pollard's Rho algorithm.
+
+    Command line arguments:
+    1. Name of the file containing the integers to be factorized. The file should contain 
+       one integer per line.
+    """
     if len(sys.argv) != 2:
         print("Usage: factors <file>")
         return
 
-    # Open the file and read numbers line by line
     with open(sys.argv[1], 'r') as file:
         for line in file:
-            # Remove newline and convert to integer
             n = int(line.strip())
-
-            # Factorize the number
-            p, q = factorize(n)
-
-            # Print the factorization using the format method
+            p = pollards_rho(n)
+            q = n // p
             print("{}={}*{}".format(n, p, q))
 
 if __name__ == "__main__":
     main()
-
