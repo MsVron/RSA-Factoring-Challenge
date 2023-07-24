@@ -32,8 +32,9 @@ def main():
             # Factorize the number
             p, q = factorize(n)
 
-            # Print the factorization
-            print(f"{n}={p}*{q}")
+            # Print the factorization using the format method
+            print("{}={}*{}".format(n, p, q))
 
 if __name__ == "__main__":
     main()
+
