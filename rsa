@@ -48,7 +48,7 @@ def main():
     with open(file_path, 'r') as file:
         n = int(file.read().strip())
         p, q = rsa_factoring(n)
-        print(f"{n}={p}*{q}")
+        print(f"{n}={max(p, q)}*{min(p, q)}")
 
 if __name__ == "__main__":
     main()
