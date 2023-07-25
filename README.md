@@ -40,7 +40,7 @@ where `n` is the number from the input file, and `p` and `q` are its prime facto
 
 ### Testing
 
-We have included a comprehensive set of tests in the `tests` directory to validate the functionality and performance of the solution. Each file contains numerous test cases that the program must correctly factor and output within the stipulated time constraint. Please feel free to run these tests to confirm the correctness and efficiency of the solution.
+I have included a comprehensive set of tests in the `tests` directory to validate the functionality and performance of the solution. Each file contains numerous test cases that the program must correctly factor and output within the stipulated time constraint. Please feel free to run these tests to confirm the correctness and efficiency of the solution.
 
 ---
 
