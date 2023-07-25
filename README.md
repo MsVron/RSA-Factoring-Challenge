@@ -10,7 +10,7 @@ The main task is to find the two prime factors of a given number `n`, which is a
 
 ### Approach and Implementation
 
-Initially, a simple implementation was used. This naive approach involved dividing the number by all integers up to its square root to find its factors. However, this approach was not efficient for very large numbers as the time complexity of this algorithm is ![O(sqrt(n)) Complexity](https://quicklatex.com/cache3/6a/ql_969518bc48d8e7d0ddfbcc9a418c286a_l3.png), which becomes very time-consuming as n grows larger.
+Initially, a simple implementation was used. This naive approach involved dividing the number by all integers up to its square root to find its factors. However, this approach was not efficient for very large numbers as the time complexity of this algorithm is ![O(sqrt(n)) Complexity](https://quicklatex.com/cache3/54/ql_6c7da21f9cd77eb4002dbe7fceda9654_l3.png), which becomes very time-consuming as n grows larger.
 
 An optimization was introduced to the initial approach, where the number was divided only by 2 and odd numbers up to its square root. This improved the efficiency somewhat, but it was still not enough for the largest numbers.
 
