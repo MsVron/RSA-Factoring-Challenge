@@ -41,3 +41,45 @@ where `n` is the number from the input file, and `p` and `q` are its prime facto
 ### Testing
 
 We have included a comprehensive set of tests in the `tests` directory to validate the functionality and performance of the solution. Each file contains numerous test cases that the program must correctly factor and output within the stipulated time constraint. Please feel free to run these tests to confirm the correctness and efficiency of the solution.
+
+---
+
+Of course, I've updated it to reflect a single author:
+
+---
+
+## RSA Challenge
+
+This challenge involves the RSA Factoring Challenge which is to find the two prime factors `p` and `q` of a number `n` given only `n`. This task is similar to the prime factors challenge, except `p` and `q` are always prime numbers and there is only one number in the files.
+
+### Problem Statement
+
+The main task is to find the two prime factors of a given number `n`, which is always the product of two prime numbers. The challenge was not only to implement the solution but to optimize it as well, aiming for a computation time of less than 5 seconds for very large numbers.
+
+### Approach and Implementation
+
+The approach I took to solve this challenge was similar to the prime factors challenge. The number was divided only by 2 and odd numbers up to its square root. If these numbers were factors, a prime check was also conducted. If the factors were prime, they were returned as the solution.
+
+### Conclusion
+
+This challenge further underscores the difficulty of factoring large numbers, especially when these numbers are the product of two prime numbers. While the solution I implemented here is able to successfully factor these RSA numbers within the stipulated time for numbers of a reasonable size, it struggles with extremely large numbers. This is an inherent challenge in the field of number theory and cryptography.
+
+### Usage
+
+To run the program:
+
+```
+python3 rsa inputfile.txt
+```
+
+This will output the number in the input file along with its prime factors in the format:
+
+```
+n=p*q
+```
+
+where `n` is the number from the input file, and `p` and `q` are its prime factors.
+
+### Testing
+
+Similar to the prime factors challenge, I have included a comprehensive set of tests in the `tests` directory to validate the functionality and performance of the solution for the RSA challenge. Each file contains a test case that the program must correctly factor and output within the stipulated time constraint. Please feel free to run these tests to confirm the correctness and efficiency of the solution.
