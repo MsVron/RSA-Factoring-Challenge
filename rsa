@@ -1,0 +1,54 @@
+#!/usr/bin/python3
+
+import math
+
+def rsa_factoring(n):
+    """
+    The function receives a number (n) and returns its two prime factors (p and q) such that n = p * q.
+
+    Args:
+        n (int): An integer that is the product of two prime numbers.
+
+    Returns:
+        tuple: A tuple containing two prime numbers p and q such that n = p * q.
+    """
+    def is_prime(num):
+        """
+        Check if a number is prime or not.
+
+        Args:
+            num (int): Number to check.
+
+        Returns:
+            bool: True if the number is prime, False otherwise.
+        """
+        if num < 2:
+            return False
+        for i in range(2, math.isqrt(num) + 1):
+            if num % i == 0:
+                return False
+        return True
+
+    for i in range(2, math.isqrt(n) + 1):
+        if n % i == 0:
+            factor = n // i
+            if is_prime(i) and is_prime(factor):
+                return (i, factor)
+    return None
+
+def main():
+    """
+    Read input file and perform the RSA factoring on the number present in the file.
+    """
+    import sys
+    if len(sys.argv) < 2:
+        print("Usage: rsa.py <file>")
+        return
+    file_path = sys.argv[1]
+    with open(file_path, 'r') as file:
+        n = int(file.read().strip())
+        p, q = rsa_factoring(n)
+        print(f"{n}={p}*{q}")
+
+if __name__ == "__main__":
+    main()
