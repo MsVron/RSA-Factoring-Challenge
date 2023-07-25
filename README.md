@@ -44,10 +44,6 @@ We have included a comprehensive set of tests in the `tests` directory to valida
 
 ---
 
-Of course, I've updated it to reflect a single author:
-
----
-
 ## RSA Challenge
 
 This challenge involves the RSA Factoring Challenge which is to find the two prime factors `p` and `q` of a number `n` given only `n`. This task is similar to the prime factors challenge, except `p` and `q` are always prime numbers and there is only one number in the files.
